@@ -1,9 +1,9 @@
-name: Intermediate environment variables
+name: variables
 on: push
 jobs:
   print:
     runs-on: ubuntu-latest
     env:
-      ACTOR: ${{ github.actor}}
+      USERNAME: ${{ vars.USERNANE }} # Variablesの参照
     steps:
-      - run: echo "${ACTOR}"
+      - run: echo "${USERNAME}"
