@@ -1,9 +1,8 @@
-name: Naming
+name: Run name
+run-name: Run by @${{ github.action}}
 on: push
 jobs:
   print:
-    name: Super Userful Job
     runs-on: ubuntu-latest
     steps:
-      - name: Amazing Script
-        run: echo "Hello"
+      - run: echo "Hello"
