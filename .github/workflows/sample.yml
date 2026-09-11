@@ -1,13 +1,8 @@
-name: Comment
-on: pull_request
+name: Timeout
+on: push
 jobs:
-  comment:
+  sleep:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
+    timeout-minutes: 1
     steps:
-      - uses: actions/checkout@v4
-      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+      - run: sleep 120
