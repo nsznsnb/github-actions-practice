@@ -1,8 +1,8 @@
-name: Timeout
+name: Concurrency
 on: push
+concurrency: ${{ github.workflow }}
 jobs:
   sleep:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
     steps:
       - run: sleep 120
