@@ -7,7 +7,7 @@ jobs:
         include:
           - os: ubuntu-latest
             version: 20
-          - os: mac-latest
+          - os: macos-latest
             version: 18
     runs-on: ${{ matrix.os}}
     steps:
