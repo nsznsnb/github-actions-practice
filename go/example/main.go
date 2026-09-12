@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-ver version string
+var version string
 
 func main() {
 	fmt.Printf("Example %s\n", version)
