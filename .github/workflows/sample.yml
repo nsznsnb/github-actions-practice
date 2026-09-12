@@ -2,7 +2,7 @@ name: Bash tracing
 on: push
 jobs:
   log:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: |
           set -x
