@@ -5,7 +5,14 @@
 
 version: 2
 updates:
-  - package-ecosystem: github-actions # See documentation for possible values
+  - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: daily
+    ignore:
+      - dependency-name: actions/upload-artifact
+        version:
+          - 4.3.0
+          - 4.3.1
+      - dependency-name: "actions/*"
+        update-types: -verion-update:semver-major
