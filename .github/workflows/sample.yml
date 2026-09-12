@@ -1,14 +1,7 @@
-name: Dump
-on: push
+name: Old
+on: workflow_dispatch
 jobs:
-  debug:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/dump/
-        id: dump
-        with:
-          enable-context: "true"
-      - run: echo "${DATE}"
-        env:
-          DATE: ${{ steps.dump.outputs.dumped-date }}
+      - uses: actions/setup-go@v4
