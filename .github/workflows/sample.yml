@@ -1,11 +1,10 @@
-name: Flow Control
-on: push
+name: Conftest
+on: pull_request
 jobs:
-  run:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - run: exit "$(( RANDOM % 2 ))"
-      - run: exit 1
-        id: error
-      - run: echo "Catch error step"
-        if: ${{ failure() && steps.error.outcome == 'failure'}}
+      - uses: actions/checkout@v4
+      - run: |
+          docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" \
+          openpolicyagent/conftest test --policy policy/ .github/workflows/
